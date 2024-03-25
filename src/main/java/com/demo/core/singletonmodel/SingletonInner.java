@@ -20,8 +20,8 @@ public class SingletonInner {
 
     public static SingletonInner getInstance() {
         SingletonInner inst = sInst;  // <<< 在这里创建临时变量
-        if (inst == null) {
-            synchronized (SingletonInner.class) {
+        if (inst == null) { // 提升效率
+            synchronized (SingletonInner.class) {  // 多线程安全
                 inst = sInst;
                 if (inst == null) {
                     inst = new SingletonInner();
